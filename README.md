@@ -17,7 +17,7 @@ First, run this command to generate extension folder layout:
 
     make appx-prepare
     
-After editing generated `TLDRify/edgeextension/manifest/appxmanifest.xml` file, run:
+After editing generated `/tmp/tldrify-edge-build/TLDRify/edgeextension/manifest/appxmanifest.xml` file, run:
 
     make appx-build
     

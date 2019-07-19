@@ -2,14 +2,13 @@
 SHELL := /bin/bash
 
 VERSION = $$(jq -r .version manifest.json)
-PREFIX = /tmp/tldrify-edge-build
 
 zip-build:
 	zip -r tldrify-$(VERSION).zip *.js *.json icons
 
 appx-prepare:
-	rm -rf $(PREFIX)
-	manifoldjs -l debug -p edgeextension -f edgeextension -m manifest.json -d $(PREFIX)
+	manifoldjs -l debug -p edgeextension -f edgeextension -m manifest.json -d $$(pwd)
+	jq 'del(.browser_action.theme_icons)' manifest.json > $(pwd)/TLDRify/edgeextension/manifest/Extension/manifest.json
 
 appx-build:
-	manifoldjs -l debug -p edgeextension package $(PREFIX)/TLDRify/edgeextension/manifest
+	manifoldjs -l debug -p edgeextension package $$(pwd)/TLDRify/edgeextension/manifest

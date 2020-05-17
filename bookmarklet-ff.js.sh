@@ -11,8 +11,6 @@ do
 done
 
 cat<<EOF
-console.log('OK');
-
 window.wrappedJSObject.TLDR = cloneInto(
   TLDR, window, {cloneFunctions: true});
 

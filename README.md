@@ -5,7 +5,13 @@ Web browser TLDRify extension implemented using WebExtensions API.
 
 ## Building
 
-### Chrome and Firefox
+### Firefox
+
+To build Zip file containing the extension artifact run:
+
+    make ff-build
+
+### Chrome
 
 To build Zip file containing the extension artifact run:
 
@@ -22,4 +28,4 @@ After editing generated `TLDRify/edgeextension/manifest/appxmanifest.xml` file, 
     make appx-build
     
 This will generate `.appx` file.
-    
+ 

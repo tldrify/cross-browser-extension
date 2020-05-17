@@ -12,3 +12,15 @@ appx-prepare:
 
 appx-build:
 	manifoldjs -l debug -p edgeextension package $$(pwd)/TLDRify/edgeextension/manifest
+
+.ONESHELL: 
+ff-build:
+	rm -rf ff-build
+	mkdir ff-build
+	cd ff-build
+	cp -r ../*.js ../*.json ../icons .
+	../bookmarklet-ff.js.sh > bookmarklet.js
+	zip -r tldrify-ff-$(VERSION).zip *.js *.json icons
+	cp tldrify-ff-$(VERSION).zip ../
+	cd ..
+	rm -rf ff-build
